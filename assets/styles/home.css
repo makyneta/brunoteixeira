@@ -370,3 +370,39 @@ footer {
     .project-card{flex-direction:column;}
     .project-card img{width:100%;height:200px;}
 }
+
+/* -------------------------------------------------
+   SOCIAL MEDIA ICONS – canto superior esquerdo
+------------------------------------------------- */
+.social-media{
+    position:fixed;
+    top:1rem;
+    left:1rem;               /* troque para right:1rem; se quiser no canto direito */
+    display:flex;
+    flex-direction:column;
+    gap:0.8rem;
+    z-index:1000;            /* acima das partículas, abaixo do conteúdo */
+}
+.social-media a{
+    color:#e0e0e0;           /* cor clara que contrasta com o fundo escuro */
+    font-size:1.3rem;
+    transition:color .25s, transform .2s;
+}
+.social-media a:hover{
+    color:var(--green-light);   /* verde claro ao passar o mouse */
+    transform:scale(1.12);
+}
+
+/* Ajuste para telas pequenas – centraliza no topo */
+@media (max-width:480px){
+    .social-media{
+        top:0.6rem;
+        left:50%;
+        transform:translateX(-50%);
+        flex-direction:row;
+        gap:0.6rem;
+    }
+    .social-media a{
+        font-size:1.2rem;
+    }
+}
