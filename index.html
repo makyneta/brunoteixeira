@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="assets/images/site/favicon.jpg" type="image/jpg">
+    <link rel="stylesheet" href="assets/styles/home.css">
+    <script src="assets/scripts/home.js"></script>
+    <script src="https://kit.fontawesome.com/5c2e1b7c2a.js" crossorigin="anonymous"></script>
+    <title>Bruno Teixeira</title>
+</head>
+
+<body>
+
+    <!-- CANVAS GLOBAL (partículas) -->
+    <canvas id="particle-canvas" class="global-canvas"></canvas>
+
+    <!-- ==================== HERO ==================== -->
+    <section id="home" class="hero">
+        <div class="hero-inner">
+            <img src="assets/images/site/bruno-teixeira.jpg" alt="Foto de [Nome]" class="hero-photo">
+            <h1 class="hero-title">
+                <span class="highlight">Bruno Teixeira</span>
+                <span class="badge">Ciências</span>
+            </h1>
+            <p class="hero-sub">Estudante de Ciências | Explorador de física, química e astronomia</p>
+            <div class="hero-actions">
+                <a href="#sobre" class="cta-btn primary">Saiba mais</a>
+                <a href="#galeria" class="cta-btn secondary">Ver fotos</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div> <!-- DIVISOR -->
+
+    <!-- ==================== SOBRE ==================== -->
+    <section id="sobre" class="about">
+        <h2>Sobre mim</h2>
+        <p class="lead">
+            Sou estudante de Ciências. Fascinado por
+            experimentos de laboratório, modelagem computacional e divulgação científica.
+        </p>
+
+        <div class="icons-grid">
+            <div class="icon-item"><i class="fas fa-atom"></i><span>Física</span></div>
+            <div class="icon-item"><i class="fas fa-flask"></i><span>Química</span></div>
+            <div class="icon-item"><i class="fas fa-dna"></i><span>Biologia</span></div>
+            <div class="icon-item"><i class="fas fa-microscope"></i><span>Pesquisa</span></div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ==================== PROJETOS ==================== -->
+    <!-- <section id="projetos" class="projects">
+    <h2>Projetos recentes</h2>
+
+    <div class="project-card">
+        <img src="img/projeto1.jpg" alt="Difração de Luz">
+        <div class="project-info">
+            <h3>Experimento de Difração</h3>
+            <p>Análise de padrões de difração usando fendas duplas. Comparação com a teoria de Young.</p>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <img src="img/projeto2.jpg" alt="Nanopartículas">
+        <div class="project-info">
+            <h3>Síntese de Nanopartículas</h3>
+            <p>Redução química de prata, caracterização por microscopia eletrônica.</p>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div> -->
+
+    <!-- ==================== GALERIA ==================== -->
+    <section id="galeria" class="gallery">
+        <h2>Galeria de fotos</h2>
+        <div class="gallery-grid">
+            <figure class="gallery-item"><img src="assets/images/gallery/brunoteixeira1.jpg" alt="Foto 1"></figure>
+            <figure class="gallery-item"><img src="assets/images/gallery/brunoteixeira2.jpg" alt="Foto 2"></figure>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ==================== CONTATO ==================== -->
+    <section id="contato" class="contact">
+        <h2>Contato</h2>
+
+        <!-- ======== FORMULÁRIO ======== -->
+        <form class="contact-form" action="https://formspree.io/f/mldppwea" method="POST">
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="BrunoTeixeira_Nome" placeholder="Seu nome" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E‑mail</label>
+                <input type="email" id="email" name="BrunoTeixeira_Email" placeholder="seu@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="assunto">Assunto</label>
+                <input type="text" id="subject" name="subject" placeholder="Assunto da mensagem" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="BrunoTeixeira_Mensagem" rows="5" placeholder="Escreva sua mensagem aqui…"
+                    required></textarea>
+            </div>
+
+            <button type="submit" class="cta-btn primary submit-btn">Enviar</button>
+        </form>
+        <!-- ============================= -->
+    </section>
+
+    <footer>
+        <a href="https://makyneta.github.io" class="footer-link">
+            Copyright © 2025 Makyneta Studios, Lda. Todos os direitos reservados.
+        </a>
+    </footer>
+
+    <script src="assets/scripts/particles.js"></script>
+
+</body>
+
+</html>
