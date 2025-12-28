@@ -1,0 +1,136 @@
+        /* -------------------------------------------------
+   404 – estilos internos (verde & preto)
+------------------------------------------------- */
+        :root {
+            --bg-dark: #0a0a0a;
+            --green-deep: #0b3d0b;
+            --green-light: #a8e6a8;
+            --text-light: #e0e0e0;
+            --border-radius: 8px;
+        }
+
+        /* Reset básico */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        /* Body */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            overflow: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Canvas (partículas) */
+        .global-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* ==== Social Media (canto superior) ==== */
+        .social-media {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            z-index: 1000;
+        }
+
+        .social-media a {
+            color: #e0e0e0;
+            font-size: 1.3rem;
+            transition: color .25s, transform .2s;
+        }
+
+        .social-media a:hover {
+            color: var(--green-light);
+            transform: scale(1.12);
+        }
+
+        /* ==== Conteúdo da 404 ==== */
+        .error-wrapper {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .error-code {
+            font-size: 6rem;
+            color: var(--green-light);
+            margin-bottom: .5rem;
+        }
+
+        .error-message {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Botões (mesmo visual das outras páginas) */
+        .cta-btn {
+            display: inline-block;
+            padding: .7rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform .2s, background .2s;
+        }
+
+        .cta-btn.primary {
+            background: var(--green-light);
+            color: #000;
+        }
+
+        .cta-btn.secondary {
+            background: rgba(168, 230, 168, .15);
+            color: var(--green-light);
+            border: 1px solid var(--green-light);
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.04);
+        }
+
+        /* ==== Responsividade ==== */
+        @media (max-width:480px) {
+            .error-code {
+                font-size: 4rem;
+            }
+
+            .error-message {
+                font-size: 1rem;
+            }
+
+            .social-media {
+                top: 0.6rem;
+                left: 50%;
+                transform: translateX(-50%);
+                flex-direction: row;
+                gap: 0.6rem;
+            }
+
+            .social-media a {
+                font-size: 1.2rem;
+            }
+        }

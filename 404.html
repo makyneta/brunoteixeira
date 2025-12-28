@@ -1,371 +1,404 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<title>404 | Bruno Teixeira</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="assets/images/site/favicon.jpg" type="image/jpg">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-<style>
-/* -------------------------------------------------
+    <!-- Metadados -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        /* -------------------------------------------------
    404 – estilos internos (verde & preto)
 ------------------------------------------------- */
-:root{
-    --bg-dark:      #0a0a0a;
-    --green-deep:  #0b3d0b;
-    --green-light: #a8e6a8;
-    --text-light:  #e0e0e0;
-    --border-radius: 8px;
-}
+        :root {
+            --bg-dark: #0a0a0a;
+            --green-deep: #0b3d0b;
+            --green-light: #a8e6a8;
+            --text-light: #e0e0e0;
+            --border-radius: 8px;
+        }
 
-/* Reset básico */
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        /* Reset básico */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
 
-/* Body */
-body{
-    font-family:'Helvetica Neue',Arial,sans-serif;
-    background:var(--bg-dark);
-    color:var(--text-light);
-    overflow:hidden;
-    scroll-behavior:smooth;
-}
+        /* Body */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            overflow: hidden;
+            scroll-behavior: smooth;
+        }
 
-/* Canvas (partículas) */
-.global-canvas{
-    position:fixed;
-    inset:0;
-    z-index:-1;
-    pointer-events:none;
-}
+        /* Canvas (partículas) */
+        .global-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
 
-/* ==== Social Media (canto superior) ==== */
-.social-media{
-    position:fixed;
-    top:1rem;
-    left:1rem;
-    display:flex;
-    flex-direction:column;
-    gap:0.8rem;
-    z-index:1000;
-}
-.social-media a{
-    color:#e0e0e0;
-    font-size:1.3rem;
-    transition:color .25s,transform .2s;
-}
-.social-media a:hover{
-    color:var(--green-light);
-    transform:scale(1.12);
-}
+        /* ==== Social Media (canto superior) ==== */
+        .social-media {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            z-index: 1000;
+        }
 
-/* ==== Conteúdo da 404 ==== */
-.error-wrapper{
-    position:relative;
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:2rem;
-}
-.error-code{
-    font-size:6rem;
-    color:var(--green-light);
-    margin-bottom:.5rem;
-}
-.error-message{
-    font-size:1.2rem;
-    margin-bottom:2rem;
-}
-.error-actions{
-    display:flex;
-    gap:1rem;
-    flex-wrap:wrap;
-    justify-content:center;
-}
+        .social-media a {
+            color: #e0e0e0;
+            font-size: 1.3rem;
+            transition: color .25s, transform .2s;
+        }
 
-/* Botões (mesmo visual das outras páginas) */
-.cta-btn{
-    display:inline-block;
-    padding:.7rem 1.5rem;
-    border-radius:4px;
-    font-weight:600;
-    text-decoration:none;
-    transition:transform .2s,background .2s;
-}
-.cta-btn.primary{
-    background:var(--green-light);
-    color:#000;
-}
-.cta-btn.secondary{
-    background:rgba(168,230,168,.15);
-    color:var(--green-light);
-    border:1px solid var(--green-light);
-}
-.cta-btn:hover{transform:scale(1.04);}
+        .social-media a:hover {
+            color: var(--green-light);
+            transform: scale(1.12);
+        }
 
-/* ==== Responsividade ==== */
-@media (max-width:480px){
-    .error-code{font-size:4rem;}
-    .error-message{font-size:1rem;}
-    .social-media{
-        top:0.6rem;
-        left:50%;
-        transform:translateX(-50%);
-        flex-direction:row;
-        gap:0.6rem;
-    }
-    .social-media a{font-size:1.2rem;}
-}
-</style>
+        /* ==== Conteúdo da 404 ==== */
+        .error-wrapper {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .error-code {
+            font-size: 6rem;
+            color: var(--green-light);
+            margin-bottom: .5rem;
+        }
+
+        .error-message {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Botões (mesmo visual das outras páginas) */
+        .cta-btn {
+            display: inline-block;
+            padding: .7rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform .2s, background .2s;
+        }
+
+        .cta-btn.primary {
+            background: var(--green-light);
+            color: #000;
+        }
+
+        .cta-btn.secondary {
+            background: rgba(168, 230, 168, .15);
+            color: var(--green-light);
+            border: 1px solid var(--green-light);
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.04);
+        }
+
+        /* ==== Responsividade ==== */
+        @media (max-width:480px) {
+            .error-code {
+                font-size: 4rem;
+            }
+
+            .error-message {
+                font-size: 1rem;
+            }
+
+            .social-media {
+                top: 0.6rem;
+                left: 50%;
+                transform: translateX(-50%);
+                flex-direction: row;
+                gap: 0.6rem;
+            }
+
+            .social-media a {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+    <!-- Title & Favicon -->
+    <title>404 | Bruno Teixeira</title>
+    <link rel="icon" href="assets/images/site/favicon.jpg" type="image/jpg">
 </head>
+
 <body>
 
-<!-- Canvas de partículas (cobre toda a tela) -->
-<canvas id="particle-canvas" class="global-canvas"></canvas>
+    <!-- Canvas de partículas (cobre toda a tela) -->
+    <canvas id="particle-canvas" class="global-canvas"></canvas>
 
-<!-- Social icons (mesmo estilo das demais páginas) -->
-<div class="social-media">
-    <a href="https://instagram.com/stxx.bruno" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-</div>
-
-<!-- Conteúdo principal da página 404 -->
-<main class="error-wrapper">
-    <h1 class="error-code">404</h1>
-    <p class="error-message">Ops! A página que você procura não existe.</p>
-
-    <div class="error-actions">
-        <a href="index.html" class="cta-btn primary">Ir Para a Página Inicial</a>
+    <!-- Social icons (mesmo estilo das demais páginas) -->
+    <div class="social-media">
+        <a href="https://instagram.com/stxx.bruno" target="_blank" aria-label="Instagram"><i
+                class="fab fa-instagram"></i></a>
+        <a href="https://tiktok.com/@stxx.bruno" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
     </div>
 
-    <!-- Opcional: contagem regressiva antes do redirecionamento automático -->
-    <!-- <p>Redirecionando em <span id="countdown">10</span> segundos…</p> -->
-</main>
+    <!-- Conteúdo principal da página 404 -->
+    <main class="error-wrapper">
+        <h1 class="error-code">404</h1>
+        <p class="error-message">Ops! A página que você procura não existe.</p>
 
-<script>
-/* -------------------------------------------------
-   particles.js – motor de partículas minimalista
-   (incorporado aqui para que a 404 funcione sem arquivos externos)
-------------------------------------------------- */
-/* -------------------------------------------------
-   particles.js – motor de partículas minimalista
-   (exclusão completa das bordas direita e inferior)
-   Licença: MIT
-------------------------------------------------- */
+        <div class="error-actions">
+            <a href="index.html" class="cta-btn primary">Ir Para a Página Inicial</a>
+        </div>
 
-(() => {
-    const canvas = document.getElementById('particle-canvas');
-    if (!canvas) return;                     // segurança caso o canvas não exista
+        <!-- Opcional: contagem regressiva antes do redirecionamento automático -->
+        <!-- <p>Redirecionando em <span id="countdown">10</span> segundos…</p> -->
+    </main>
+</body>
 
-    const ctx = canvas.getContext('2d');
-    const DPR = window.devicePixelRatio || 1; // suporte a telas retina
 
-    /* -------------------- CONFIGURAÇÕES -------------------- */
-    const config = {
-        particleCount:      30,               // poucas partículas → visual clean
-        maxVelocity:        0.3,              // movimento suave
-        connectionDistance: 80,               // linhas só entre partículas próximas
-        particleSize: {
-            min: 1,
-            max: 2
-        },
-        colors: {
-            particle: '#a8e6a8', // verde claro (partículas)
-            line:     '#0b3d0b'  // verde escuro (linhas)
-        }
-    };
+    <!-- Scripts -->
+    <script>
+        /* -------------------------------------------------
+           particles.js – motor de partículas minimalista
+           (incorporado aqui para que a 404 funcione sem arquivos externos)
+        ------------------------------------------------- */
+        /* -------------------------------------------------
+           particles.js – motor de partículas minimalista
+           (exclusão completa das bordas direita e inferior)
+           Licença: MIT
+        ------------------------------------------------- */
 
-    /* ----------- ÁREAS EXCLUÍDAS (direita + inferior) ----------- */
-    // Percentual da largura que será removido à direita (0‑1)
-    const EXCLUDE_RIGHT_RATIO  = 0.30;   // 30 % da largura à direita
-    // Percentual da altura que será removido na parte inferior (0‑1)
-    const EXCLUDE_BOTTOM_RATIO = 0.30;   // 30 % da altura embaixo
+        (() => {
+            const canvas = document.getElementById('particle-canvas');
+            if (!canvas) return;                     // segurança caso o canvas não exista
 
-    /**
-     * Verifica se a coordenada (x,y) está **fora** das áreas excluídas.
-     * @returns true → pode ser desenhada; false → deve ser ignorada.
-     */
-    function isInsideDrawableArea(x, y, w, h) {
-        const rightLimit  = w * (1 - EXCLUDE_RIGHT_RATIO);   // limite esquerdo da faixa direita
-        const bottomLimit = h * (1 - EXCLUDE_BOTTOM_RATIO);  // limite superior da faixa inferior
+            const ctx = canvas.getContext('2d');
+            const DPR = window.devicePixelRatio || 1; // suporte a telas retina
 
-        // Se x ultrapassa o limite direito OU y ultrapassa o limite inferior → fora da zona drawable
-        if (x > rightLimit) return false;
-        if (y > bottomLimit) return false;
-        return true;
-    }
+            /* -------------------- CONFIGURAÇÕES -------------------- */
+            const config = {
+                particleCount: 30,               // poucas partículas → visual clean
+                maxVelocity: 0.3,              // movimento suave
+                connectionDistance: 80,               // linhas só entre partículas próximas
+                particleSize: {
+                    min: 1,
+                    max: 2
+                },
+                colors: {
+                    particle: '#a8e6a8', // verde claro (partículas)
+                    line: '#0b3d0b'  // verde escuro (linhas)
+                }
+            };
 
-    /**
-     * Verifica se o ponto médio de uma linha está dentro da zona drawable.
-     * Se o meio cair na faixa excluída, descartamos a linha inteira.
-     */
-    function isLineInsideDrawableArea(x1, y1, x2, y2, w, h) {
-        const mx = (x1 + x2) / 2;
-        const my = (y1 + y2) / 2;
-        return isInsideDrawableArea(mx, my, w, h);
-    }
+            /* ----------- ÁREAS EXCLUÍDAS (direita + inferior) ----------- */
+            // Percentual da largura que será removido à direita (0‑1)
+            const EXCLUDE_RIGHT_RATIO = 0.30;   // 30 % da largura à direita
+            // Percentual da altura que será removido na parte inferior (0‑1)
+            const EXCLUDE_BOTTOM_RATIO = 0.30;   // 30 % da altura embaixo
 
-    /* -------------------- CLASSE PARTICLE -------------------- */
-    class Particle {
-        constructor(width, height) {
-            this.x  = Math.random() * width;
-            this.y  = Math.random() * height;
-            this.vx = (Math.random() - 0.5) * config.maxVelocity;
-            this.vy = (Math.random() - 0.5) * config.maxVelocity;
-            this.size = config.particleSize.min +
+            /**
+             * Verifica se a coordenada (x,y) está **fora** das áreas excluídas.
+             * @returns true → pode ser desenhada; false → deve ser ignorada.
+             */
+            function isInsideDrawableArea(x, y, w, h) {
+                const rightLimit = w * (1 - EXCLUDE_RIGHT_RATIO);   // limite esquerdo da faixa direita
+                const bottomLimit = h * (1 - EXCLUDE_BOTTOM_RATIO);  // limite superior da faixa inferior
+
+                // Se x ultrapassa o limite direito OU y ultrapassa o limite inferior → fora da zona drawable
+                if (x > rightLimit) return false;
+                if (y > bottomLimit) return false;
+                return true;
+            }
+
+            /**
+             * Verifica se o ponto médio de uma linha está dentro da zona drawable.
+             * Se o meio cair na faixa excluída, descartamos a linha inteira.
+             */
+            function isLineInsideDrawableArea(x1, y1, x2, y2, w, h) {
+                const mx = (x1 + x2) / 2;
+                const my = (y1 + y2) / 2;
+                return isInsideDrawableArea(mx, my, w, h);
+            }
+
+            /* -------------------- CLASSE PARTICLE -------------------- */
+            class Particle {
+                constructor(width, height) {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * config.maxVelocity;
+                    this.vy = (Math.random() - 0.5) * config.maxVelocity;
+                    this.size = config.particleSize.min +
                         Math.random() *
                         (config.particleSize.max - config.particleSize.min);
-        }
+                }
 
-        move(width, height) {
-            this.x += this.vx;
-            this.y += this.vy;
+                move(width, height) {
+                    this.x += this.vx;
+                    this.y += this.vy;
 
-            // rebote nas bordas
-            if (this.x <= 0 || this.x >= width)  this.vx *= -1;
-            if (this.y <= 0 || this.y >= height) this.vy *= -1;
-        }
+                    // rebote nas bordas
+                    if (this.x <= 0 || this.x >= width) this.vx *= -1;
+                    if (this.y <= 0 || this.y >= height) this.vy *= -1;
+                }
 
-        draw(context, canvasW, canvasH) {
-            // Só desenha se estiver fora das áreas excluídas
-            if (!isInsideDrawableArea(this.x, this.y, canvasW, canvasH)) return;
-            context.beginPath();
-            context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            context.fillStyle = config.colors.particle;
-            context.fill();
-        }
-    }
-
-    /* -------------------- VARIÁVEIS GLOBAIS -------------------- */
-    const particles = [];
-
-    /* -------------------- FUNÇÕES AUXILIARES -------------------- */
-
-    // Redimensiona o canvas para ocupar toda a janela (considerando DPR)
-    function resizeCanvas() {
-        canvas.width  = window.innerWidth  * DPR;
-        canvas.height = window.innerHeight * DPR;
-        canvas.style.width  = `${window.innerWidth}px`;
-        canvas.style.height = `${window.innerHeight}px`;
-        ctx.scale(DPR, DPR);
-    }
-
-    // Cria o array de partículas
-    function initParticles() {
-        particles.length = 0;
-        const w = canvas.width  / DPR;
-        const h = canvas.height / DPR;
-        for (let i = 0; i < config.particleCount; i++) {
-            particles.push(new Particle(w, h));
-        }
-    }
-
-    // Desenha linhas entre partículas próximas, mas só se a linha inteira
-    // (pelo menos o ponto médio) estiver fora das áreas excluídas.
-    function connectParticles(canvasW, canvasH) {
-        for (let i = 0; i < particles.length; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-
-                // Ambos os pontos precisam estar dentro da zona drawable
-                if (
-                    !isInsideDrawableArea(particles[i].x, particles[i].y, canvasW, canvasH) ||
-                    !isInsideDrawableArea(particles[j].x, particles[j].y, canvasW, canvasH)
-                ) continue;
-
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-
-                if (dist < config.connectionDistance) {
-                    // Se o ponto médio da linha cair na faixa excluída, ignora a linha
-                    if (!isLineInsideDrawableArea(
-                            particles[i].x, particles[i].y,
-                            particles[j].x, particles[j].y,
-                            canvasW, canvasH)) {
-                        continue;
-                    }
-
-                    // Opacidade máxima ≈ 0.4 (para ficar sutil)
-                    const opacity = Math.min(0.4, 1 - dist / config.connectionDistance);
-                    const hexOpacity = Math.round(opacity * 255)
-                                         .toString(16)
-                                         .padStart(2, '0');
-
-                    ctx.strokeStyle = `${config.colors.line}${hexOpacity}`;
-                    ctx.lineWidth = 1;
-                    ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.stroke();
+                draw(context, canvasW, canvasH) {
+                    // Só desenha se estiver fora das áreas excluídas
+                    if (!isInsideDrawableArea(this.x, this.y, canvasW, canvasH)) return;
+                    context.beginPath();
+                    context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    context.fillStyle = config.colors.particle;
+                    context.fill();
                 }
             }
-        }
-    }
 
-    // Loop de animação principal
-    function animate() {
-        const cw = canvas.width  / DPR;
-        const ch = canvas.height / DPR;
+            /* -------------------- VARIÁVEIS GLOBAIS -------------------- */
+            const particles = [];
 
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+            /* -------------------- FUNÇÕES AUXILIARES -------------------- */
 
-        // mover e desenhar partículas (já verifica a zona excluída dentro de draw())
-        particles.forEach(p => {
-            p.move(cw, ch);
-            p.draw(ctx, cw, ch);
-        });
-
-        // conectar linhas (também respeita as áreas excluídas)
-        connectParticles(cw, ch);
-
-        requestAnimationFrame(animate);
-    }
-
-    /* -------------------- EVENTOS -------------------- */
-
-    // Redimensiona o canvas sempre que a janela mudar de tamanho
-    window.addEventListener('resize', () => {
-        resizeCanvas();
-        initParticles();   // recria partículas para evitar artefatos
-    });
-
-    // Inicialização ao carregar a página
-    function start() {
-        resizeCanvas();
-        initParticles();
-        animate();
-    }
-
-    // Garantimos que o script rode depois que o DOM estiver pronto
-    if (document.readyState === 'complete' ||
-        document.readyState === 'interactive') {
-        start();
-    } else {
-        document.addEventListener('DOMContentLoaded', start);
-    }
-
-})();   // fim do IIFE
-
-/* -------------------------------------------------
-   404.js – redirecionamento automático (opcional)
-------------------------------------------------- */
-(() => {
-    const AUTO_REDIRECT_SECONDS = 0;   // 0 = desativado; troque para 10, 5, etc.
-    if(AUTO_REDIRECT_SECONDS>0){
-        const countdownEl = document.getElementById('countdown');
-        let remaining = AUTO_REDIRECT_SECONDS;
-        const interval = setInterval(()=>{
-            remaining--;
-            if(countdownEl) countdownEl.textContent = remaining;
-            if(remaining<=0){
-                clearInterval(interval);
-                window.location.href='index.html';
+            // Redimensiona o canvas para ocupar toda a janela (considerando DPR)
+            function resizeCanvas() {
+                canvas.width = window.innerWidth * DPR;
+                canvas.height = window.innerHeight * DPR;
+                canvas.style.width = `${window.innerWidth}px`;
+                canvas.style.height = `${window.innerHeight}px`;
+                ctx.scale(DPR, DPR);
             }
-        },1000);
-    }
-})();
-</script>
-</body>
+
+            // Cria o array de partículas
+            function initParticles() {
+                particles.length = 0;
+                const w = canvas.width / DPR;
+                const h = canvas.height / DPR;
+                for (let i = 0; i < config.particleCount; i++) {
+                    particles.push(new Particle(w, h));
+                }
+            }
+
+            // Desenha linhas entre partículas próximas, mas só se a linha inteira
+            // (pelo menos o ponto médio) estiver fora das áreas excluídas.
+            function connectParticles(canvasW, canvasH) {
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+
+                        // Ambos os pontos precisam estar dentro da zona drawable
+                        if (
+                            !isInsideDrawableArea(particles[i].x, particles[i].y, canvasW, canvasH) ||
+                            !isInsideDrawableArea(particles[j].x, particles[j].y, canvasW, canvasH)
+                        ) continue;
+
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < config.connectionDistance) {
+                            // Se o ponto médio da linha cair na faixa excluída, ignora a linha
+                            if (!isLineInsideDrawableArea(
+                                particles[i].x, particles[i].y,
+                                particles[j].x, particles[j].y,
+                                canvasW, canvasH)) {
+                                continue;
+                            }
+
+                            // Opacidade máxima ≈ 0.4 (para ficar sutil)
+                            const opacity = Math.min(0.4, 1 - dist / config.connectionDistance);
+                            const hexOpacity = Math.round(opacity * 255)
+                                .toString(16)
+                                .padStart(2, '0');
+
+                            ctx.strokeStyle = `${config.colors.line}${hexOpacity}`;
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            // Loop de animação principal
+            function animate() {
+                const cw = canvas.width / DPR;
+                const ch = canvas.height / DPR;
+
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // mover e desenhar partículas (já verifica a zona excluída dentro de draw())
+                particles.forEach(p => {
+                    p.move(cw, ch);
+                    p.draw(ctx, cw, ch);
+                });
+
+                // conectar linhas (também respeita as áreas excluídas)
+                connectParticles(cw, ch);
+
+                requestAnimationFrame(animate);
+            }
+
+            /* -------------------- EVENTOS -------------------- */
+
+            // Redimensiona o canvas sempre que a janela mudar de tamanho
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                initParticles();   // recria partículas para evitar artefatos
+            });
+
+            // Inicialização ao carregar a página
+            function start() {
+                resizeCanvas();
+                initParticles();
+                animate();
+            }
+
+            // Garantimos que o script rode depois que o DOM estiver pronto
+            if (document.readyState === 'complete' ||
+                document.readyState === 'interactive') {
+                start();
+            } else {
+                document.addEventListener('DOMContentLoaded', start);
+            }
+
+        })();   // fim do IIFE
+
+        /* -------------------------------------------------
+           404.js – redirecionamento automático (opcional)
+        ------------------------------------------------- */
+        (() => {
+            const AUTO_REDIRECT_SECONDS = 0;   // 0 = desativado; troque para 10, 5, etc.
+            if (AUTO_REDIRECT_SECONDS > 0) {
+                const countdownEl = document.getElementById('countdown');
+                let remaining = AUTO_REDIRECT_SECONDS;
+                const interval = setInterval(() => {
+                    remaining--;
+                    if (countdownEl) countdownEl.textContent = remaining;
+                    if (remaining <= 0) {
+                        clearInterval(interval);
+                        window.location.href = 'index.html';
+                    }
+                }, 1000);
+            }
+        })();
+    </script>
 </html>
